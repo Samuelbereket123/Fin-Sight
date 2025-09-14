@@ -16,29 +16,46 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          DataSimplified
+    <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'w-[90%] max-w-4xl bg-white/80 backdrop-blur-xl shadow-lg py-3 px-6 rounded-full border border-gray-200/50' 
+        : 'w-auto bg-transparent py-4 px-6 rounded-2xl'
+    }`}>
+      <div className="w-full flex justify-between items-center">
+        <Link href="/" className="flex items-center space-x-3 group">
+          <svg className={`w-6 h-6 transition-colors duration-300 ${isScrolled ? 'text-black group-hover:text-blue-600' : 'text-black'}`} viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span className={`text-lg font-bold transition-colors duration-300 text-black group-hover:text-blue-600`}>
+            FinSight
+          </span>
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          <Link href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors">
-            How It Works
-          </Link>
-          <Link href="#why-choose-us" className="text-gray-700 hover:text-blue-600 transition-colors">
-            Why Choose Us
+        <div className="hidden md:flex items-center space-x-10 ml-16">
+          <Link 
+            href="#features" 
+            className="transition-colors duration-300 font-medium text-sm text-black hover:text-blue-600 whitespace-nowrap"
+          >
+            Features
           </Link>
           <Link 
-            href="#contact" 
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+            href="#indicators" 
+            className="transition-colors duration-300 font-medium text-sm text-black hover:text-blue-600 whitespace-nowrap"
           >
-            Contact Us
+            Economic Indicators
+          </Link>
+          <Link 
+            href="#directory" 
+            className="transition-colors duration-300 font-medium text-sm text-black hover:text-blue-600 whitespace-nowrap"
+          >
+            Directory
+          </Link>
+          <Link 
+            href="#get-started" 
+            className="px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg"
+          >
+            Get Started
           </Link>
         </div>
 
